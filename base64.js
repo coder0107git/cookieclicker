@@ -99,5 +99,3 @@ const Base64 = {
         return string;
     }
 }
-
-export default Base64;
