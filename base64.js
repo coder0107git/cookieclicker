@@ -4,7 +4,7 @@
  *  http://www.webtoolkit.info/
  *
  **/
-var Base64 = {
+const Base64 = {
     // private property
     _keyStr: "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789+/=",
     // public method for encoding
@@ -99,3 +99,5 @@ var Base64 = {
         return string;
     }
 }
+
+export default Base64;
