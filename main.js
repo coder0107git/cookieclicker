@@ -5,6 +5,22 @@ All this code is copyright Orteil, 2013.
 Spoilers ahead.
 http://orteil.dashnet.org
 */
+
+/*
+// prevents the game from being played by most school kids in grades k-12
+// original time checking code is from https://stackoverflow.com/a/64264859
+const closedStart = 7 * 60 + 30; // hours * 60 + minutes = minutes
+const closedEnd = 15 * 60 + 30; // hours * 60 + minutes = minutes
+var now = new Date();
+var currentTime = now.getHours() * 60 + now.getMinutes(); // Minutes since Midnight
+	
+if(currentTime >= closedStart && currentTime =< closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches
+    alert("You can not play this from 7:30 AM - 3:30 PM");
+} else {
+// do something
+}
+*/
+
 /*=====================================================================================
 MISC HELPER FUNCTIONS
 =======================================================================================*/
