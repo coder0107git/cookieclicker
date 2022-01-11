@@ -5,7 +5,7 @@ Optimizations to do (not mentioning the dozens of missing features) :
 -use canvas instead
 -only compute AI for mobs with 2 tiles of view
 */
-var LaunchDungeons = function() {
+const LaunchDungeons = function() {
     Game.GetWord = function(type) {
         if(type == 'secret') return choose(['hidden', 'secret', 'mysterious', 'forgotten', 'forbidden', 'lost', 'sunk', 'buried', 'concealed', 'shrouded', 'invisible', 'elder']);
         if(type == 'ruined') return choose(['ancient', 'old', 'ruined', 'ravaged', 'destroyed', 'collapsed', 'demolished', 'burnt', 'torn-down', 'shattered', 'dilapidated', 'abandoned', 'crumbling', 'derelict', 'decaying']);
@@ -1187,3 +1187,5 @@ var LaunchDungeons = function() {
         luck: 7
     };
 };
+
+export default LaunchDungeons;
