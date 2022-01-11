@@ -95,9 +95,6 @@
     </div>
     <!--[if lt IE9]><script>alert("Sorry, the github user coder0107git threw out support for your browser.");</script><![endif]-->
     <script nomodule>alert("Sorry, the github user coder0107git threw out any support for browser versions released before 2020 (supporting es2020)");</script>
-    <script src="base64.js"></script>
-    <script src="ajax.js"></script>
-    <script src="DungeonGen.js"></script>
     <script src="dungeons.js?v=1.5044"></script>
     <script src="main.js?v=1.511"></script>
     <script type="module">
@@ -112,14 +109,9 @@
 	    alert("You can not play this from 7:30 AM - 3:30 PM");
 	} else {
 	    // import the files here
-	    /* Code for launching the game
-                Game.Launch();
-                window.onload = function() {
-                    if(!Game.ready) {
-	                Game.Load();
-	            }
-                };
-	    */
+	    let { Base64 } = import('./base64.js');
+	    let { ajax } = import("./ajax.js");
+	    let { default:  } = import("./DungeonGen.js");
 	}
     </script>
 </body>
