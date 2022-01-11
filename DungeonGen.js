@@ -872,4 +872,3 @@ const DungeonGen = function() {
         return str;
     }
 }
-export * as default;
