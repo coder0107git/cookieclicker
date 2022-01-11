@@ -4014,6 +4014,9 @@ Game.Launch = function() {
 /*=====================================================================================
 LAUNCH THIS THING
 =======================================================================================*/
-// Game launch code moved to index.html
-
-export default Game;
+Game.Launch();
+window.onload = function() {
+    if(!Game.ready) {
+        Game.Load();
+    }
+};
