@@ -1187,5 +1187,3 @@ const LaunchDungeons = function() {
         luck: 7
     };
 };
-
-export default LaunchDungeons;
