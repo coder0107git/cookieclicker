@@ -24,5 +24,3 @@ function ajax(url, callback) {
     ajaxRequest.open('GET', url + '&nocache=' + (new Date().getTime()), true);
     ajaxRequest.send(null);
 }
-
-export default ajax;
