@@ -6,20 +6,7 @@ Spoilers ahead.
 http://orteil.dashnet.org
 */
 
-/*
-// prevents the game from being played by most school kids in grades k-12
-// original time checking code is from https://stackoverflow.com/a/64264859
-const closedStart = 7 * 60 + 30; // hours * 60 + minutes = minutes
-const closedEnd = 15 * 60 + 30; // hours * 60 + minutes = minutes
-var now = new Date();
-var currentTime = now.getHours() * 60 + now.getMinutes(); // Minutes since Midnight
-	
-if(currentTime >= closedStart && currentTime =< closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches
-    alert("You can not play this from 7:30 AM - 3:30 PM");
-} else {
-// do something
-}
-*/
+
 
 /*=====================================================================================
 MISC HELPER FUNCTIONS
@@ -288,6 +275,20 @@ Debug = function(what) {
 GAME INITIALIZATION
 =======================================================================================*/
 Game = {};
+Game.checkTime = function() {
+    // prevents the game from being played by most school kids in grades k-12
+    // original time checking code is from https://stackoverflow.com/a/64264859
+    const closedStart = 7 * 60 + 30; // hours * 60 + minutes = minutes
+    const closedEnd = 15 * 60 + 17; // hours * 60 + minutes = minutes
+    var now = new Date();
+    var currentTime = now.getHours() * 60 + now.getMinutes(); // Minutes since Midnight
+    if(currentTime >= closedStart && currentTime = < closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches
+	Game.Popup("You can not play this from 7:30 AM - 3:17 PM");
+        return false;
+    } else {
+        return true;
+    }
+}
 Game.Launch = function() {
     Game.version = 1.0411;
     Game.beta = 0;
@@ -305,7 +306,13 @@ Game.Launch = function() {
         l('javascriptError').innerHTML = '<div style="padding:64px 128px;"><div class="title">Loading...</div></div>';
         Game.Loader = new Loader();
         Game.Loader.domain = 'img/';
-        Game.Loader.loaded = Game.Init;
+        Game.Loader.loaded = function() {
+	    if(Game.checkTime() == true) {
+	        Game.Init();
+	    } else {
+	        alert("Error: Could Not Start Game Corectly");
+	    }
+	};
         Game.Loader.Load(Game.toLoad);
         Game.Assets = Game.Loader.assets;
     }
