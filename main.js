@@ -269,16 +269,17 @@ Debug = function(what) {
     else debugStr += '; ' + what;
 }
 
-function checkTime() {
+checkTime = function() {
     // prevents the game from being played by most school kids in grades k-12
     // original time checking code is from https://stackoverflow.com/a/64264859
     const closedStart = 7 * 60 + 30; // hours * 60 + minutes = minutes
     const closedEnd = 15 * 60 + 17; // hours * 60 + minutes = minutes
     var now = new Date();
     var currentTime = now.getHours() * 60 + now.getMinutes(); // Minutes since Midnight
-    if(window.location.hash !== "#debug") {
+    this.unavalibleTime = "7:30 AM - 3:17 PM";
+    if(window.location.hash !== "#20%debug%20") {
         if(currentTime >= closedStart && currentTime <= closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches the time
-            alert("You can not play this from 7:30 AM - 3:17 PM");
+            alert("You can not play this from " + this.unavalibleTime);
             return false;
         } else {
             return true;
@@ -311,8 +312,6 @@ Game.Launch = function() {
         Game.Loader.loaded = function() {
             if(checkTime() == true) {
                 Game.Init();
-            } else {
-                alert("Error: Could Not Start Game Corectly");
             }
         };
         Game.Loader.Load(Game.toLoad);
@@ -328,9 +327,9 @@ Game.Launch = function() {
         Game.fps = 30;
         Game.baseSeason = 'valentines'; //halloween, christmas, valentines
         Game.season = Game.baseSeason;
-        if(Game.mobile == 1) {
+        /*if(Game.mobile == 1) {
             l('wrapper').className = 'mobile';
-        }
+        }*/
         Game.SaveTo = 'CookieClickerGame';
         if(Game.beta) Game.SaveTo = 'CookieClickerGameBeta';
         l('versionNumber').innerHTML = 'v.' + Game.version + (Game.beta ? ' <span style="color:#ff0;">beta</span>' : '');
@@ -735,9 +734,10 @@ Game.Launch = function() {
                         Game.cookies+=moni;
                         Game.cookiesEarned+=moni;
                         */
-                        alert('Sorry, you can\'t import saves from the old version anymore.');
+                        alert("Sorry, you can't import saves from the old version anymore.");
                         return;
                     }
+                    Game.Popup("Just so you know, this me has been setup so " + checkTime.unavalibleTime);
                     Game.goldenCookie.reset();
                     Game.seasonPopup.reset();
                     Game.prestige = [];
