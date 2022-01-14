@@ -22,11 +22,12 @@
     <link href="https://fonts.googleapis.com/css?family=Kavoon&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link href="style.css?v=1.51" rel="stylesheet" type="text/css">
     <script>
-        if(window.location.hash == "debug") {
+        if(window.location.hash == "#debug") {
             var script = document.createElement("script");
             script.src = "https://cdn.jsdelivr.net/gh/gh-canon/stack-snippet-console@master/console.js";
             document.getElementById("wrapper").appendChild(script);
         }
+        alert(window.location.hash);
     </script>
 </head>
 <body>
@@ -101,7 +102,11 @@
         </div>
     </div>
     <!--[if lt IE9]><script src="excanvas.compiled.js"></script><![endif]-->
-    <script>console.log("Hello, World!");</script>
+    <script>
+        var message = "Hello, World!";
+        console.log(message);
+        alert(message);
+    </script>
     <script src="base64.js"></script>
     <script src="ajax.js"></script>
     <script src="DungeonGen.js"></script>
