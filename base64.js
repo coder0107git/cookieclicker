@@ -98,4 +98,4 @@ const Base64 = {
         }
         return string;
     }
-}
+};
