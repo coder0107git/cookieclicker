@@ -1,4 +1,6 @@
 var LaunchMobile = function() {
+    alert("Sorry, this game uses a file that can't be found");
+    /*
     Game.m = { fileSystem: {} }; //handle for every thing mobile
     //docs for this stuff : http://docs.phonegap.com/en/3.0.0/cordova_file_file.md.html
     Game.m.readSaveRequest = function () {
@@ -60,4 +62,5 @@ var LaunchMobile = function() {
     //Wait for device API libraries to load
     Debug('Readying mobile');
     document.addEventListener('deviceready', Game.m.onDeviceReady, false);
+    */
 };
