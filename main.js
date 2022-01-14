@@ -275,12 +275,16 @@ function checkTime() {
     const closedEnd = 15 * 60 + 17; // hours * 60 + minutes = minutes
     var now = new Date();
     var currentTime = now.getHours() * 60 + now.getMinutes(); // Minutes since Midnight
-    if(currentTime >= closedStart && currentTime <= closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches
-	alert("You can not play this from 7:30 AM - 3:17 PM");
-        return false;
-    } else {
-        return true;
-    }
+	if(window.location.hash !== "#debug") {
+	    if(currentTime >= closedStart && currentTime <= closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches the time
+	        alert("You can not play this from 7:30 AM - 3:17 PM");
+            return false;
+        } else {
+            return true;
+        }
+	} else {
+	    return true;
+	}
 }
 /*=====================================================================================
 GAME INITIALIZATION
