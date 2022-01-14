@@ -279,7 +279,7 @@ Game.checkTime = function() {
     const closedEnd = 15 * 60 + 17; // hours * 60 + minutes = minutes
     var now = new Date();
     var currentTime = now.getHours() * 60 + now.getMinutes(); // Minutes since Midnight
-    if(currentTime >= closedStart && currentTime =< closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches
+    if(currentTime >= closedStart && currentTime <= closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches
 	Game.Popup("You can not play this from 7:30 AM - 3:17 PM");
         return false;
     } else {
