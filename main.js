@@ -268,11 +268,7 @@ Debug = function(what) {
     if(!debugStr) debugStr = what;
     else debugStr += '; ' + what;
 }
-/*=====================================================================================
-GAME INITIALIZATION
-=======================================================================================*/
-Game = {};
-Game.checkTime = function() {
+function checkTime() {
     // prevents the game from being played by most school kids in grades k-12
     // original time checking code is from https://stackoverflow.com/a/64264859
     const closedStart = 7 * 60 + 30; // hours * 60 + minutes = minutes
@@ -280,12 +276,17 @@ Game.checkTime = function() {
     var now = new Date();
     var currentTime = now.getHours() * 60 + now.getMinutes(); // Minutes since Midnight
     if(currentTime >= closedStart && currentTime <= closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches
-	Game.Popup("You can not play this from 7:30 AM - 3:17 PM");
+	alert("You can not play this from 7:30 AM - 3:17 PM");
         return false;
     } else {
         return true;
     }
 }
+/*=====================================================================================
+GAME INITIALIZATION
+=======================================================================================*/
+Game = {};
+Game.checkTime = checkTime();
 Game.Launch = function() {
     Game.version = 1.0411;
     Game.beta = 0;
