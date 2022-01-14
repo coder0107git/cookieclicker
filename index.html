@@ -25,7 +25,8 @@
         if(window.location.hash == "#debug") {
             var script = document.createElement("script");
             script.src = "https://cdn.jsdelivr.net/gh/gh-canon/stack-snippet-console@master/console.js";
-            document.getElementById("wrapper").appendChild(script);
+            var wrapper = document.getElementById("wrapper");
+            wrapper.insertBefore(script, wrapper.nextSibling);
         }
         alert(window.location.hash);
     </script>
