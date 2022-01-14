@@ -871,4 +871,4 @@ const DungeonGen = function() {
         }
         return str;
     }
-}
+};
