@@ -21,6 +21,13 @@
     <link rel="shortcut icon" href="favicon.ico" />
     <link href="https://fonts.googleapis.com/css?family=Kavoon&subset=latin,latin-ext" rel="stylesheet" type="text/css">
     <link href="style.css?v=1.51" rel="stylesheet" type="text/css">
+    <script>
+        if(window.location.hash == "debug") {
+            var script = document.createElement("script");
+            script.src = "https://cdn.jsdelivr.net/gh/gh-canon/stack-snippet-console@master/console.js";
+            document.getElementById("wrapper").appendChild(script);
+        }
+    </script>
 </head>
 <body>
     <div id="wrapper">
@@ -94,10 +101,11 @@
         </div>
     </div>
     <!--[if lt IE9]><script src="excanvas.compiled.js"></script><![endif]-->
+    <script>console.log("Hello, World!");</script>
     <script src="base64.js"></script>
     <script src="ajax.js"></script>
     <script src="DungeonGen.js"></script>
     <script src="dungeons.js?v=1.5044"></script>
-    <script src="main.js?v=1.511"></script>
+    <script src="main.js?v=1.5111"></script>
 </body>
 </html>
