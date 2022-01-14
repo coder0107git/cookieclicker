@@ -286,7 +286,9 @@ function checkTime() {
 GAME INITIALIZATION
 =======================================================================================*/
 Game = {};
-Game.checkTime = checkTime();
+Game.checkTime = function() { 
+	checkTime(); 
+};
 Game.Launch = function() {
     Game.version = 1.0411;
     Game.beta = 0;
