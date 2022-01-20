@@ -265,11 +265,13 @@ Loader = function() //asset-loading system
 }
 var debugStr = '';
 Debug = function(what) {
-    if(!debugStr) debugStr = what;
-    else debugStr += '; ' + what;
+    if(!debugStr) {
+        debugStr = what; 
+    } else {
+        debugStr += '; ' + what;
+    }
 }
-
-checkTime = function() {
+const checkTime = function() {
     // prevents the game from being played by most school kids in grades k-12
     // original time checking code is from https://stackoverflow.com/a/64264859
     const closedStart = 7 * 60 + 30; // hours * 60 + minutes = minutes
@@ -287,7 +289,10 @@ checkTime = function() {
     } else {
         return true;
     }
+    unavalibleTime: this.unavalibleTime;
 }
+Object.freeze(checkTime);
+
 /*=====================================================================================
 GAME INITIALIZATION
 =======================================================================================*/
@@ -306,12 +311,14 @@ Game.Launch = function() {
     */
     Game.toLoad = ['perfectCookie.png', 'goldCookie.png', 'wrathCookie.png', 'spookyCookie.png', 'icons.png', 'cookieShower1.png', 'cookieShower2.png', 'cookieShower3.png', 'milkWave.png', 'chocolateMilkWave.png', 'raspberryWave.png', 'orangeWave.png', 'caramelWave.png', 'grandmas1.jpg', 'grandmas2.jpg', 'grandmas3.jpg', 'bgBlue.jpg', 'blackGradient.png', 'shine.png', 'shadedBorders.png', 'shadedBordersRed.png', 'shadedBordersGold.png', 'smallCookies.png', 'cursor.png', 'wrinkler.png', 'winterWrinkler.png', 'wrinklerBits.png', 'grandmaIcon.png', 'grandmaIconB.png', 'grandmaIconC.png', 'grandmaIconD.png', 'santa.png', 'frostedReindeer.png', 'snow2.jpg', 'winterFrame.png', 'hearts.png', 'heartStorm.png'];
     Game.Load = function() {
-        l('javascriptError').innerHTML = '<div style="padding:64px 128px;"><div class="title">Loading...</div></div>';
         Game.Loader = new Loader();
         Game.Loader.domain = 'img/';
         Game.Loader.loaded = function() {
             if(checkTime() == true) {
                 Game.Init();
+                l('javascriptError').innerHTML = '<div style="padding:64px 128px;"><div class="title">Loading...</div></div>';
+            } else {
+                l('javascriptError').innerHTML = '<div style="padding:64px 128px;"><div class="title">NOTE: This game is unvavlible from ' + checkTime().unavalibleTime + '</div></div>';
             }
         };
         Game.Loader.Load(Game.toLoad);
