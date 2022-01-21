@@ -278,7 +278,7 @@ const checkTime = function() {
     const closedEnd = 15 * 60 + 17; // hours * 60 + minutes = minutes
     var now = new Date();
     var currentTime = now.getHours() * 60 + now.getMinutes(); // Minutes since Midnight
-    this.unavalibleTime = "7:30 AM - 3:17 PM";
+    const unavalibleTime = "7:30 AM - 3:17 PM";
     if(window.location.hash !== "#20%debug%20") {
         if(currentTime >= closedStart && currentTime <= closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches the time
             alert("You can not play this from " + this.unavalibleTime);
@@ -289,8 +289,8 @@ const checkTime = function() {
     } else {
         return true;
     }
-    unavalibleTime: this.unavalibleTime;
 }
+Object.assign(checkTime, { unavalibleTime: "7:30 AM - 3:17 PM" });
 Object.freeze(checkTime);
 
 /*=====================================================================================
@@ -318,7 +318,7 @@ Game.Launch = function() {
                 Game.Init();
                 l('javascriptError').innerHTML = '<div style="padding:64px 128px;"><div class="title">Loading...</div></div>';
             } else {
-                l('javascriptError').innerHTML = '<div style="padding:64px 128px;"><div class="title">NOTE: This game is unvavlible from ' + checkTime().unavalibleTime + '</div></div>';
+                l('javascriptError').innerHTML = '<div style="padding:64px 128px;"><div class="title">NOTE: This game is unvavlible from ' + checkTime.unavalibleTime + '</div></div>';
             }
         };
         Game.Loader.Load(Game.toLoad);
