@@ -281,7 +281,7 @@ const checkTime = function() {
     const unavalibleTime = "7:30 AM - 3:17 PM";
     if(window.location.hash !== "#20%debug%20") {
         if(currentTime >= closedStart && currentTime <= closedEnd) { // checks if current time is somewhere inbetween the start and end times or matches the time
-            alert("You can not play this from " + this.unavalibleTime);
+            alert("You can not play this from " + unavalibleTime);
             return false;
         } else {
             return true;
