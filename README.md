@@ -1,6 +1,6 @@
 Cookie Clicker
 ==============
 
-A clone of the original game here: http://orteil.dashnet.org/cookieclicker/
+A clone of the original game here (with some modifications by @coder0107git): http://orteil.dashnet.org/cookieclicker/. Originaly cloned by @eli-schwartz.
 
-Not for school use
+Not to be played in educational enviorments.
